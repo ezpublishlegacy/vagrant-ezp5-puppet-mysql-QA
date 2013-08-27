@@ -50,9 +50,13 @@ class vncserver {
     file { "/home/vagrant/.Xauthority":
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/vncserver/Xauthority.erb'),
+      owner  => "vagrant",
+      mode   => 750,  
     } ~>
     file { "/home/vagrant/.vnc":
       ensure => "directory",
+      owner  => "vagrant",
+      mode   => 750,  
     } ~>
     file { "/home/vagrant/.vnc/xstartup":
       ensure => file,
