@@ -51,11 +51,9 @@ class vncserver {
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/vncserver/Xauthority.erb'),
     } ~>
-    exec { "create .vnc folder":
-      command => "/bin/mkdir /home/vagrant/.ssh/",
-      path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
-      returns => [ 0, 1, '', ' ']
-    }
+    file { "/home/vagrant/.vnc":
+      ensure => "directory",
+    } ~>
     file { "/home/vagrant/.vnc/xstartup":
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/vncserver/xstartup.erb'),
