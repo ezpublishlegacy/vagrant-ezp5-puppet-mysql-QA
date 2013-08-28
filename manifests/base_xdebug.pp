@@ -47,16 +47,23 @@ class git {
 class svn {
     package { "subversion":
       ensure => installed,
+    } ~>
+    file { "/home/vagrant/.subversion/config":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/svn/config.erb'),
+      owner   => 'vagrant',
+      group   => 'vagrant',
+      mode    => '750',
     }
 }
 
 class ssh {
-  file { "/etc/ssh/sshd_config":
-    ensure => file,
-    content => template('/tmp/vagrant-puppet/manifests/ssh/sshd_config.erb'),
-    owner   => 'root',
-    group   => 'root',
-    mode    => '644',
+    file { "/etc/ssh/sshd_config":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/ssh/sshd_config.erb'),
+      owner   => 'root',
+      group   => 'root',
+      mode    => '644',
   }
 }
 
