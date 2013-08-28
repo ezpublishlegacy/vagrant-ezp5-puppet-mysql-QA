@@ -32,6 +32,7 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 - Done! `$ vagrant ssh` to SSH into your newly created machine. The MOTD contains details on the database, hostnames, etc.
 - VNCServer uses port 5901, which is redirected to localhost. In order to use it, use the address localhost:1
 - Don't forget to add you hostname to /etc/hosts file and the required virtualhosts
+- To use ftp to execute ezsi tests, use localhost port 2121
 
 ## Environment Details:
 
