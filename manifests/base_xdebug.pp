@@ -18,7 +18,9 @@ include git
 include vncserver
 include seleniumserver
 include svn
+include ftp
 include tests
+include ezsi
 
 class ntpd {
     package { "ntpdate.x86_64": 
@@ -65,6 +67,57 @@ class ssh {
       owner   => 'root',
       group   => 'root',
       mode    => '644',
+    }
+}
+
+class ftp {
+    $neededpackages = ["vsftpd", "ftp"]
+    package { $neededpackages:
+      ensure => installed,
+    } ~>
+    exec { "chkconfig vsftp on":
+      command => "/sbin/chkconfig vsftp on",
+      path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+      returns => [ 0, 1, '', ' ']
+    } ~>
+    exec { "service vsftp start":
+      command => "/sbin/service vsftp start",
+      path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+      returns => [ 0, 1, '', ' ']
+    } ~>
+    exec { "setsebool -P ftp_home_dir=1":
+      command => "/usr/sbin/setsebool -P ftp_home_dir=1",
+      path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+      returns => [ 0, 1, '', ' ']
+    } ~>
+    service { "vsftpd":
+      ensure => running,
+      hasstatus => true,
+      hasrestart => true,
+      require => Package["vsftpd"],
+      restart => true;
+    }    
+}
+
+class ezsi {
+    user { "esitest":
+      comment => "Creating user esitest",
+      home => "/home/esitest",
+      ensure => present,
+      shell => "/bin/bash",
+    } ~>
+    file { "/home/esitest":
+      ensure => "directory",
+      owner  => "esitest",
+      group  => "esitest",
+      mode   => 750,  
+    }    
+    file { "/etc/httpd/conf.d/filter.conf":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/httpd/filter.conf.erb'),
+      owner   => 'root',
+      group   => 'root',
+      mode    => '640',
     }
 }
 

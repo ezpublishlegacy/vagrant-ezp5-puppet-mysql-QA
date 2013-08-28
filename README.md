@@ -17,6 +17,7 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 - SVN
 - VSFTP
 - Unzip
+- Patch
 
 ## Requirements:
 
@@ -29,8 +30,8 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 - Run `$ vagrant up` from the terminal
 - Wait (the first time will take a few minutes, as the base box is downloaded, and required packages are installed for the first time), get some coffee.
 - Done! `$ vagrant ssh` to SSH into your newly created machine. The MOTD contains details on the database, hostnames, etc.
-- VNCServer uses port 5900, which is redirected to localhost. In order to use it, use the address localhost:1
-
+- VNCServer uses port 5901, which is redirected to localhost. In order to use it, use the address localhost:1
+- Don't forget to add you hostname to /etc/hosts file and the required virtualhosts
 
 ## Environment Details:
 
