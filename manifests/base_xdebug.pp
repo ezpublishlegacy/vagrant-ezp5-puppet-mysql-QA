@@ -54,7 +54,7 @@ class ssh {
 }
 
 class vncserver {
-    $neededpackages = [ "tigervnc", "tigervnc-server", "tigervnc-server-module", "xterm", "matchbox-window-manager" ]
+    $neededpackages = [ "tigervnc", "tigervnc-server", "tigervnc-server-module", "xterm", "matchbox-window-manager", "firefox" ]
     package { $neededpackages:
       ensure => present,
     } ~>
@@ -62,16 +62,21 @@ class vncserver {
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/vncserver/Xauthority.erb'),
       owner  => "vagrant",
+      group  => "vagrant",
       mode   => 750,  
     } ~>
     file { "/home/vagrant/.vnc":
       ensure => "directory",
       owner  => "vagrant",
+      group  => "vagrant",
       mode   => 750,  
     } ~>
     file { "/home/vagrant/.vnc/xstartup":
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/vncserver/xstartup.erb'),
+      owner  => "vagrant",
+      group  => "vagrant",
+      mode   => 777,  
     }
 }
 
@@ -90,6 +95,7 @@ class seleniumserver {
     file { "/usr/local/bin/start_seleniumrc.sh":
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/selenium/start_seleniumrc.sh.erb'),
+      mode   => 777,  
     } ~>
     exec    { "chmod":
       command => "/bin/chmod +x /user/local/bin/start_seleniumrc.sh",
