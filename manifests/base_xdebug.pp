@@ -17,6 +17,7 @@ include addtostartup
 include git
 include vncserver
 include seleniumserver
+include svn
 
 class ntpd {
     package { "ntpdate.x86_64": 
@@ -39,6 +40,12 @@ class motd {
 
 class git {
     package { "git":
+      ensure => installed,
+    }
+}
+
+class svn {
+    package { "subversion":
       ensure => installed,
     }
 }
