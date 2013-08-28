@@ -18,6 +18,7 @@ include git
 include vncserver
 include seleniumserver
 include svn
+include tests
 
 class ntpd {
     package { "ntpdate.x86_64": 
@@ -64,7 +65,34 @@ class ssh {
       owner   => 'root',
       group   => 'root',
       mode    => '644',
-  }
+    }
+}
+
+class tests {
+    package { "patch":
+      ensure => installed,
+    } ->
+    file { "/usr/local/sbin/restart_apache.sh":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/tests/restart_apache.sh.erb'),
+      owner   => 'root',
+      group   => 'root',
+      mode    => '755',
+    } ~>
+    file { "/usr/local/sbin/rootlaunch":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/tests/rootlaunch.erb'),
+      owner   => 'root',
+      group   => 'root',
+      mode    => '755',
+    } ~>
+    file { "/usr/local/etc/configfile.rootlaunch":
+      ensure => file,
+      content => template('/tmp/vagrant-puppet/manifests/tests/configfile.rootlaunch.erb'),
+      owner   => 'root',
+      group   => 'root',
+      mode    => '644',
+    }
 }
 
 class vncserver {
