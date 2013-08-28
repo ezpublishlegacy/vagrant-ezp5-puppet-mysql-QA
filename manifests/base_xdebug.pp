@@ -51,6 +51,12 @@ class svn {
     package { "subversion":
       ensure => installed,
     } ~>
+    file { "/home/vagrant/.subversion":
+      ensure => "directory",
+      owner  => "vagrant",
+      group  => "vagrant",
+      mode   => '750',  
+    } 
     file { "/home/vagrant/.subversion/config":
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/svn/config.erb'),
@@ -110,7 +116,7 @@ class ezsi {
       ensure => "directory",
       owner  => "esitest",
       group  => "esitest",
-      mode   => 750,  
+      mode   => '750',  
     }    
     file { "/etc/httpd/conf.d/filter.conf":
       ensure => file,
@@ -158,20 +164,20 @@ class vncserver {
       content => template('/tmp/vagrant-puppet/manifests/vncserver/Xauthority.erb'),
       owner  => "vagrant",
       group  => "vagrant",
-      mode   => 750,  
+      mode   => '750',  
     } ~>
     file { "/home/vagrant/.vnc":
       ensure => "directory",
       owner  => "vagrant",
       group  => "vagrant",
-      mode   => 750,  
+      mode   => '750',  
     } ~>
     file { "/home/vagrant/.vnc/xstartup":
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/vncserver/xstartup.erb'),
       owner  => "vagrant",
       group  => "vagrant",
-      mode   => 777,  
+      mode   => '777',  
     }
 }
 
@@ -190,7 +196,7 @@ class seleniumserver {
     file { "/usr/local/bin/start_seleniumrc.sh":
       ensure => file,
       content => template('/tmp/vagrant-puppet/manifests/selenium/start_seleniumrc.sh.erb'),
-      mode   => 777,  
+      mode   => '777',  
     } ~>
     exec    { "chmod":
       command => "/bin/chmod +x /user/local/bin/start_seleniumrc.sh",
@@ -358,7 +364,7 @@ class prepareezpublish {
       ensure => "directory",
       owner  => "vagrant",
       group  => "vagrant",
-      mode   => 777,  
+      mode   => '777',  
     }
 }
 
