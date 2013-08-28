@@ -1,4 +1,5 @@
 include ntpd
+include ssh
 include apachephp
 include db
 include createdb
@@ -53,7 +54,7 @@ class ssh {
 }
 
 class vncserver {
-    $neededpackages = [ "tigervnc", "tigervnc-server", "tigervnc-server-module", "xterm" ]
+    $neededpackages = [ "tigervnc", "tigervnc-server", "tigervnc-server-module", "xterm", "matchbox-window-manager" ]
     package { $neededpackages:
       ensure => present,
     } ~>
