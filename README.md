@@ -33,6 +33,15 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 - VNCServer uses port 5901, which is redirected to localhost. In order to use it, use the address localhost:1
 - Don't forget to add you hostname to /etc/hosts file and the required virtualhosts
 - To use ftp to execute ezsi tests, use localhost port 2121
+- You need to make a few changes in your personal xml configuration files:
+
+```    
+    - <siteaccesssettings matchorder="uri" adminhost="127.0.0.1">
+```
+- To run a filter use the command:
+    - time php tests/runtests.php --dsn mysqli://ezp:ezp@localhost/ezp --db-per-test --configuration=extension/selenium/configs/<CONFIGURATION>.xml --filter="admin2.html"
+
+- You need to chown ezpublish/cache ezpublish/logs folder using: sudo chown -R www-data cache/ logs/
 
 ## Environment Details:
 
