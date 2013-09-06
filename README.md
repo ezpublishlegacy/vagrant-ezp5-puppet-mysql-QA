@@ -41,7 +41,6 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 - To run a filter use the command:
     - time php tests/runtests.php --dsn mysqli://ezp:ezp@localhost/ezp --db-per-test --configuration=extension/selenium/configs/<CONFIGURATION>.xml --filter="admin2.html"
 
-- You need to chown ezpublish/cache ezpublish/logs folder using: sudo chown -R www-data cache/ logs/
 
 ## Environment Details:
 
