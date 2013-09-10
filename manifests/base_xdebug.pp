@@ -1,4 +1,5 @@
 include ntpd
+include bashrc
 include ssh
 include apachephp
 include db
@@ -29,6 +30,16 @@ class ntpd {
     service { "ntpd":
       ensure => running,
     }
+}
+
+class bashrc {
+    file    {'/home/vagrant/.bashrc':
+      ensure  => file,
+      content => template('/tmp/vagrant-puppet/manifests/bashrc/bashrc.erb'),
+      owner   => 'vagrant',
+      group   => 'vagrant',
+      mode    => '644',
+    }  
 }
 
 class motd {
