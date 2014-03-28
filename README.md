@@ -4,7 +4,7 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 
 ## Stack & utilities:
 
-- CentOS 6.4 x64
+- CentOS 6.5 x64
 - Apache 2.2.15
 - MySQL 5.1.69
 - PHP 5.3.3
@@ -55,7 +55,7 @@ Apache/httpd:
 ```
 
 ## COPYRIGHT
-Copyright (C) 1999-2013 eZ Systems AS. All rights reserved.
+Copyright (C) 1999-2014 eZ Systems AS. All rights reserved.
 
 ## LICENSE
 http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
