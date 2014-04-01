@@ -13,7 +13,7 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 - Composer
 - Git
 - VNCServer
-- SeleniumServer
+- SeleniumServer 2.41
 - SVN
 - VSFTP
 - Unzip

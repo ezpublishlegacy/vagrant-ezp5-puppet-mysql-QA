@@ -7,7 +7,7 @@ class tests::seleniumserver {
     } ~>
     exec    { "wget":
       cwd     => "/opt/selenium",
-      command => "/usr/bin/wget http://selenium.googlecode.com/files/selenium-server-standalone-2.5.0.jar",
+      command => "/usr/bin/wget http://selenium-release.storage.googleapis.com/2.41/selenium-server-standalone-2.41.0.jar",
       path    => "/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/vagrant/bin",
       returns => [ 0, 1, '', ' ']
     } ~>
