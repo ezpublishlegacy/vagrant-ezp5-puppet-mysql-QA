@@ -9,8 +9,8 @@ class system::ftp {
       path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
       returns => [ 0, 1, '', ' ']
     } ~>
-    exec { "service vsftp start":
-      command => "/sbin/service vsftp start",
+    exec { "service vsftpd start":
+      command => "/sbin/service vsftpd start",
       path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
       returns => [ 0, 1, '', ' ']
     } ~>
