@@ -1,5 +1,5 @@
 class system::ntpd {
-    package { "ntpdate.x86_64": 
+    package { "ntp": 
       ensure => installed,
       require => Class["system"]
     }
