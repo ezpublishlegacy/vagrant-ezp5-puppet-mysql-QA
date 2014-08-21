@@ -1,4 +1,7 @@
 class system::firewall {
+    package { "iptables-services":
+      ensure => installed,
+    } ~>
     file    {'/etc/sysconfig/iptables':
       ensure  => file,
       content => template('system/iptables.erb'),
