@@ -15,8 +15,8 @@ include httpd::virtualhosts
 include httpd::apc
 include httpd::xdebug
 
-include mysql
-include mysql::createdb
+include mariadb
+include mariadb::createdb
 
 include ezpublish
 include ezpublish::ezfind
