@@ -1,5 +1,5 @@
 class httpd {
-    $neededpackages = [ "httpd", "php", "php-cli", "php-gd" ,"php-mysql", "php-pear", "php-xml", "php-mbstring", "php-pecl-apc", "php-process", "curl.x86_64", "php-intl.x86_64" ]
+    $neededpackages = [ "httpd", "php", "php-cli", "php-gd" ,"php-mysql", "php-pear", "php-xml", "php-mbstring", "php-process", "curl.x86_64", "php-intl.x86_64" ]
     package { $neededpackages:
         ensure => present,
         require => Class["system"]
