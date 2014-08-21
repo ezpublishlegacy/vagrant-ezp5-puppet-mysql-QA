@@ -4,7 +4,7 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 
 ## Stack & utilities:
 
-- CentOS 6.7 x64
+- CentOS 7.0 x64
 - Apache 2.4.6
 - MariaDB 5.5.37
 - PHP 5.4.16
