@@ -54,6 +54,15 @@ Apache/httpd:
   www root: /var/www/html/ezpublish5
 ```
 
+## KNOWN LIMITATIONS
+
+When you are running vagrant up, it will appear the following Warnings:
+
+- Warning: Setting manifestdir is deprecated. See http://links.puppetlabs.com/env-settings-deprecations due to https://tickets.puppetlabs.com/browse/PUP-1433
+
+- Warning: The package type's allow_virtual parameter will be changing its default value from false to true in a future release. If you do not want to allow virtual packages, please explicitly set allow_virtual to false. due to https://tickets.puppetlabs.com/browse/PUP-2650
+
+
 ## COPYRIGHT
 Copyright (C) 1999-2014 eZ Systems AS. All rights reserved.
 
