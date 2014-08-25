@@ -1,4 +1,4 @@
-# vagrant:ezp5:puppet:mysql:centos7:QA
+# vagrant:ezp5:puppet:mariadb:centos7:QA
 
 The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 
