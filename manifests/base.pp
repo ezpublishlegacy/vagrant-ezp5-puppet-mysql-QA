@@ -12,7 +12,7 @@ include system::ftp
 
 include httpd
 include httpd::virtualhosts
-include httpd::apc
+include httpd::zendopcache
 include httpd::xdebug
 
 include mariadb

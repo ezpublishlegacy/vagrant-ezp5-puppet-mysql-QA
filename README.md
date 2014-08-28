@@ -8,7 +8,7 @@ The Q.A. machine for eZ Publish 5.x, provisioned with Puppet.
 - Apache 2.4.6
 - MariaDB 5.5.37
 - PHP 5.4.16
-- APC 3.1.13
+- Zend Opcache 7.0.3
 - Xdebug 2.2.5
 - Composer
 - Git
